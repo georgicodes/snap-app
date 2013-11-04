@@ -1,0 +1,52 @@
+.spade { background-position: 5px 0px; }
+.heart { background-position: -50px 0px; }
+.diamond { background-position: 5px -50px; }
+.club { background-position: -50px -50px; }
+
+.spade, .heart, .diamond, .club { 
+	height: 50px; width: 50px;
+	background-image: url('../img/French_suits.svg');
+	background-repeat : no-repeat;
+  	overflow          : hidden;
+  	background-size: 100px auto;
+}
+
+.card {
+    padding: 10px 10px 10px 10px;
+    border: 1px solid #333333;
+    border-radius: 2px;
+    width: 150px;
+    height: 200px;
+    margin-right: 20px;
+}
+
+.hiddenCard {
+    background-color: #FF0000;
+}
+
+header {
+    color: #FF0000;
+}
+
+.enabled {
+    opacity: 0.5;
+}
+
+.common-float-left {
+    float: left;
+}
+
+.clear {
+    clear: both;
+}
+
+.card-decoration {
+}
+
+.rotate {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+}

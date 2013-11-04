@@ -1,0 +1,49 @@
+<!doctype html>
+<html ng-app="snapGameApp" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Snap</title>
+    <link rel="stylesheet" href="css/snap.css"/>
+    <script src="scripts/angular.min.js"></script>
+    <script src="scripts/controllers.js"></script>
+</head>
+<body ng-controller="SnapGameCtrl">
+
+<header>{{appTitle}}</header>
+
+<section id="game-table">
+    <div class="card hiddenCard common-float-left">
+        <p>Computer</p>
+    </div>
+    <div class="card common-float-left" ng-click="snap(true)">
+        <div class="card-decoration">
+            <div>{{played[played.length-1].rank}}</div>
+            <div ng-class="played[played.length-1].suit"></div>
+        </div>
+        <div class="card-decoration rotate">
+            <div>{{played[played.length-1].rank}}</div>
+            <div ng-class="played[played.length-1].suit"></div>
+        </div>
+    </div>
+    <div class="card hiddenCard common-float-left" ng-click="playCard()">
+        <p>Player</p>
+    </div>
+</section>
+<div class="clear"></div>
+
+
+<section id="game-controls">
+    <button ng-click="startGame()">Start Game</button>
+</section>
+
+<!--<p>Total Cards Played: {{played.length}}</p>-->
+<p>Computer Remaining Card: {{deckComputer.length}}</p>
+
+<p>Player Remaining Cards: {{deckPlayer.length}}</p>
+
+<p>Next Turn: {{nextPlayer}}</p>
+
+<p>winner: {{winner}}</p>
+</body>
+</html>

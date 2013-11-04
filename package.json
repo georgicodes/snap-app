@@ -1,0 +1,9 @@
+{
+    "name": "Snap-App",
+    "version": "0.0.0",
+    "description": "Snap App",
+    "dependencies": {
+        "express": "latest"
+    },
+    "author": "georgik"
+}
