@@ -13,37 +13,40 @@
 <header>{{appTitle}}</header>
 
 <section id="game-table">
-    <div class="card hiddenCard common-float-left">
-        <p>Computer</p>
+    <div class="card hiddenCard common-float-left" ng-class="{true: 'card-highlight'}[nextPlayer == 'computer']">
+        <p ng-class="{true: 'snap-winner'}[snapWinner == 'computer']">Computer</p>
+        <br/>
+        <p>{{deckComputer.length}}</p>
     </div>
-    <div class="card common-float-left" ng-click="snap(true)">
-        <div class="card-decoration">
+    <div class="card common-float-left" ng-click="snapByPlayer()">
+        <div class="card-decoration top-left">
             <div>{{played[played.length-1].rank}}</div>
             <div ng-class="played[played.length-1].suit"></div>
         </div>
-        <div class="card-decoration rotate">
+        <div class="card-decoration bottom-right rotate">
             <div>{{played[played.length-1].rank}}</div>
             <div ng-class="played[played.length-1].suit"></div>
         </div>
     </div>
-    <div class="card hiddenCard common-float-left" ng-click="playCard()">
-        <p>Player</p>
+    <div class="card hiddenCard common-float-left" ng-class="{true: 'card-highlight'}[nextPlayer == 'player']"
+         ng-click="playCardPlayer()">
+        <p ng-class="{true: 'snap-winner'}[snapWinner == 'player']">Player</p>
+        <br/>
+        <p>{{deckPlayer.length}}</p>
     </div>
 </section>
 <div class="clear"></div>
 
-
 <section id="game-controls">
-    <button ng-click="startGame()">Start Game</button>
+    <button class="centre" ng-click="startGame();">Start Game</button>
+
+    <div class="centre">
+        <div class="common-float-left" ng-repeat="level in levels">
+            <input type="radio" ng-model="difficulty.value" value="{{level.value}}">{{level.name}}<br/>
+        </div>
+    </div>
 </section>
 
-<!--<p>Total Cards Played: {{played.length}}</p>-->
-<p>Computer Remaining Card: {{deckComputer.length}}</p>
-
-<p>Player Remaining Cards: {{deckPlayer.length}}</p>
-
-<p>Next Turn: {{nextPlayer}}</p>
-
-<p>winner: {{winner}}</p>
+<p ng-show="gameHasWinner">And the winner is.... {{winner}}!</p>
 </body>
 </html>

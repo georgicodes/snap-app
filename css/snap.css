@@ -1,17 +1,30 @@
-.spade { background-position: 5px 0px; }
-.heart { background-position: -50px 0px; }
-.diamond { background-position: 5px -50px; }
-.club { background-position: -50px -50px; }
+.spade {
+    background-position: 5px 0px;
+}
 
-.spade, .heart, .diamond, .club { 
-	height: 50px; width: 50px;
-	background-image: url('../img/French_suits.svg');
-	background-repeat : no-repeat;
-  	overflow          : hidden;
-  	background-size: 100px auto;
+.heart {
+    background-position: -50px 0px;
+}
+
+.diamond {
+    background-position: 5px -50px;
+}
+
+.club {
+    background-position: -50px -50px;
+}
+
+.spade, .heart, .diamond, .club {
+    height: 50px;
+    width: 50px;
+    background-image: url('../img/French_suits.svg');
+    background-repeat: no-repeat;
+    overflow: hidden;
+    background-size: 100px auto;
 }
 
 .card {
+    position: relative;
     padding: 10px 10px 10px 10px;
     border: 1px solid #333333;
     border-radius: 2px;
@@ -28,6 +41,12 @@ header {
     color: #FF0000;
 }
 
+body {
+    width: 580px;
+    margin: 0 auto;
+    color: #333333;
+}
+
 .enabled {
     opacity: 0.5;
 }
@@ -41,6 +60,17 @@ header {
 }
 
 .card-decoration {
+    position: absolute;
+}
+
+.top-left {
+    top: 10px;
+    left: 10px
+}
+
+.bottom-right {
+    bottom: 10px;
+    right: 10px
 }
 
 .rotate {
@@ -49,4 +79,46 @@ header {
     -o-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg);
+}
+
+.card-highlight {
+    border: 2px solid #ffff4f;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.error {
+    background-color: #FF0000;
+}
+
+.display-inline {
+    display: inline;
+}
+
+#game-controls {
+    padding: 10px 0 0 0;
+    position: relative;
+
+}
+
+.centre {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.snap-winner {
+    -webkit-animation: flashAnim 1s;
+}
+
+@-webkit-keyframes flashAnim {
+    0% {
+        color: #333333;
+    }
+    50% {
+        color: #178bff;
+    }
+    100% {
+        color: #333333;
+    }
 }
