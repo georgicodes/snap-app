@@ -3,16 +3,17 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Snap App</title>
+    <title>Snappy App</title>
 
     <link href='http://fonts.googleapis.com/css?family=Gabriela' rel='stylesheet' type='text/css'>
+    <link href="//fonts.googleapis.com/css?family=Homenaje:400" rel="stylesheet" type="text/css">
 
     <link rel="stylesheet" href="css/bootstrap.css"/>
     <link rel="stylesheet" href="css/snap.css"/>
 
     <script src="scripts/vendor/angular.min.js"></script>
-    <script src="scripts/vendor/ui-bootstrap-tpls.min.js"></script>
     <script src="scripts/vendor/ui-bootstrap.min.js"></script>
+    <script src="scripts/vendor/ui-bootstrap-tpls.min.js"></script>
     <script src="scripts/controllers.js"></script>
 </head>
 <body ng-controller="SnapGameCtrl">
@@ -21,6 +22,14 @@
 
     <header><h1>{{appTitle}}</h1></header>
 
+    <section id="instructions">
+        <accordion close-others="oneAtATime">
+            <accordion-group heading="How to Play" is-open="true">
+                This content is straight in the template.
+            </accordion-group>
+        </accordion>
+
+    </section>
     <section id="game-table">
         <div class="card hiddenCard common-float-left" ng-class="{true: 'card-highlight'}[nextPlayer == 'computer']">
             <p ng-class="{true: 'snap-winner'}[snapWinner == 'computer']">Computer</p>
@@ -49,16 +58,15 @@
     <div class="clear"></div>
 
     <section id="game-controls">
-        <button class="centre" ng-click="startGame();">Start Game</button>
+        <button ng-click="startGame();">Start Game</button>
 
-        <div class="centre">
-            <div class="common-float-left" ng-repeat="level in levels">
-                <input type="radio" ng-model="difficulty.value" value="{{level.value}}">{{level.name}}<br/>
-            </div>
+        <div ng-repeat="level in levels">
+            <input type="radio" ng-model="difficulty.value" value="{{level.value}}">{{level.name}}<br/>
         </div>
     </section>
 
     <p ng-show="gameHasWinner">And the winner is.... {{winner}}!</p>
+
 </div>
 </body>
 </html>

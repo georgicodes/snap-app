@@ -5,17 +5,36 @@
 
 header {
     font-family: 'Gabriela', serif;
+    color:#FEC85E;
 }
 
 body {
-    width: 580px;
     margin: 0 auto;
+    font-family: 'Gabriela', serif;
+    background-color: #965171;
+}
+
+.panel {
+    background-color:rgb(245, 244, 222);
+}
+.panel-default > .panel-heading {
+    background-color: #F67E4A;
 }
 
 .container {
     width: auto;
     max-width: 680px;
     padding: 0 15px;
+}
+
+#game-table {
+    text-align: center;
+}
+.inside-card {
+    display: block;
+    height: 100%;
+    width: 100%;
+    background-color: blueviolet;
 }
 
 .spade {
@@ -46,15 +65,17 @@ body {
 .card {
     position: relative;
     padding: 10px 10px 10px 10px;
-    border: 1px solid #333333;
-    border-radius: 2px;
+    margin:33px;
+    border: 3px solid #9E1326;
+    border-radius: 5px;
     width: 150px;
     height: 200px;
-    margin-right: 20px;
+    display: inline-block;
+    background-color: #ffffff;
 }
 
 .hiddenCard {
-    background-color: #FF0000;
+    background-color: #E82F2A;
 }
 
 .enabled {
@@ -106,9 +127,7 @@ body {
 }
 
 #game-controls {
-    padding: 10px 0 0 0;
-    position: relative;
-
+    text-align: center;
 }
 
 .centre {
