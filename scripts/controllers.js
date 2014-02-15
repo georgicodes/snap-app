@@ -1,4 +1,4 @@
-var snapGameApp = angular.module('snapGameApp', []);
+var snapGameApp = angular.module('snapGameApp', ['ui.bootstrap']);
 
 snapGameApp.controller('SnapGameCtrl', function SnapGameCtrl($scope, $http, $timeout) {
     var PLAYER_NAME = "player";
