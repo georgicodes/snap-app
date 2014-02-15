@@ -27,23 +27,29 @@
         <accordion close-others="oneAtATime">
             <accordion-group heading="How to Play" is-open="true">
                 Relive the joy of playing snap from your childhood! <br/> <br/>
-                1. Click "Start Game" to begin. The starting player will be randomly chosen each time you start a new game. <br/>
+                1. Click "Start Game" to begin. The starting player will be randomly chosen each time you start a new
+                game. <br/>
                 2. The current player will be indicated by a yellow glow on the card pile. <br/>
                 3. Click the middle pile to SNAP! <br/>
-                4. Change the difficulty from easy - medium - hard. This changes the speed at which the computer SNAPs. <br/>
+                4. Change the difficulty from easy - medium - hard. This changes the speed at which the computer SNAPs.
+                <br/>
                 5. The winner will be the player with the most cards at the end <br/>
             </accordion-group>
         </accordion>
 
     </section>
     <section id="game-table">
-        <div class="centre" ng-show="gameHasWinner"><i class="fa fa-trophy card-icons"></i><br/>And the winner is.... {{winner}}!</div>
+        <div class="centre" ng-show="gameHasWinner"><i class="fa fa-trophy card-icons"></i><br/>And the winner is....
+            {{winner}}!
+        </div>
         <div class="card hiddenCard common-float-left" ng-class="{true: 'card-highlight'}[nextPlayer == 'computer']">
-            <p ng-class="{true: 'snap-winner'}[snapWinner == 'computer']">Computer</p>
-            <i class="fa fa-laptop card-icons"></i>
-            <br/>
+            <div ng-class="{true: 'snap-winner'}[snapWinner == 'computer']">
+                <p>Computer</p>
+                <i class="fa fa-laptop card-icons"></i>
+                <br/>
 
-            <p>{{deckComputer.length}} cards left</p>
+                <p>{{deckComputer.length}} cards left</p>
+            </div>
         </div>
         <div class="card common-float-left" ng-click="snapByPlayer()">
             <div class="card-decoration top-left">
@@ -57,11 +63,13 @@
         </div>
         <div class="card hiddenCard common-float-left" ng-class="{true: 'card-highlight'}[nextPlayer == 'player']"
              ng-click="playCardPlayer()">
-            <p ng-class="{true: 'snap-winner'}[snapWinner == 'player']">Player</p>
-            <i class="fa fa-user card-icons"></i>
-            <br/>
+            <div ng-class="{true: 'snap-winner'}[snapWinner == 'player']">
+                <p>Player</p>
+                <i class="fa fa-user card-icons"></i>
+                <br/>
 
-            <p>{{deckPlayer.length}} cards left</p>
+                <p>{{deckPlayer.length}} cards left</p>
+            </div>
         </div>
     </section>
     <div class="clear"></div>
