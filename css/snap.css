@@ -1,3 +1,23 @@
+/*added to make angular-ui work*/
+.nav, .pagination, .carousel, .panel-title a {
+    cursor: pointer;
+}
+
+header {
+    font-family: 'Gabriela', serif;
+}
+
+body {
+    width: 580px;
+    margin: 0 auto;
+}
+
+.container {
+    width: auto;
+    max-width: 680px;
+    padding: 0 15px;
+}
+
 .spade {
     background-position: 5px 0px;
 }
@@ -35,16 +55,6 @@
 
 .hiddenCard {
     background-color: #FF0000;
-}
-
-header {
-    color: #FF0000;
-}
-
-body {
-    width: 580px;
-    margin: 0 auto;
-    color: #333333;
 }
 
 .enabled {

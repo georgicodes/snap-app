@@ -1,9 +1,14 @@
 {
-    "name": "Snap-App",
-    "version": "0.0.0",
-    "description": "Snap App",
-    "dependencies": {
-        "express": "latest"
-    },
-    "author": "georgiknox"
+  "name": "Snap-App",
+  "version": "1.0.0",
+  "description": "Snap App",
+  "dependencies": {
+    "express": "latest"
+  },
+  "devDependencies": {
+    "grunt": "latest",
+    "grunt-contrib-sass": "~0.7.2",
+    "grunt-contrib-watch": "~0.5.3"
+  },
+  "author": "georgiknox"
 }

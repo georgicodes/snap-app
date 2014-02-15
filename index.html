@@ -3,52 +3,62 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Snap</title>
+    <title>Snap App</title>
+
+    <link href='http://fonts.googleapis.com/css?family=Gabriela' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="css/bootstrap.css"/>
     <link rel="stylesheet" href="css/snap.css"/>
+
     <script src="scripts/vendor/angular.min.js"></script>
     <script src="scripts/vendor/ui-bootstrap-tpls.min.js"></script>
     <script src="scripts/vendor/ui-bootstrap.min.js"></script>
     <script src="scripts/controllers.js"></script>
 </head>
 <body ng-controller="SnapGameCtrl">
+<!-- Begin page content -->
+<div class="container">
 
-<header>{{appTitle}}</header>
+    <header><h1>{{appTitle}}</h1></header>
 
-<section id="game-table">
-    <div class="card hiddenCard common-float-left" ng-class="{true: 'card-highlight'}[nextPlayer == 'computer']">
-        <p ng-class="{true: 'snap-winner'}[snapWinner == 'computer']">Computer</p>
-        <br/>
-        <p>{{deckComputer.length}}</p>
-    </div>
-    <div class="card common-float-left" ng-click="snapByPlayer()">
-        <div class="card-decoration top-left">
-            <div>{{played[played.length-1].rank}}</div>
-            <div ng-class="played[played.length-1].suit"></div>
+    <section id="game-table">
+        <div class="card hiddenCard common-float-left" ng-class="{true: 'card-highlight'}[nextPlayer == 'computer']">
+            <p ng-class="{true: 'snap-winner'}[snapWinner == 'computer']">Computer</p>
+            <br/>
+
+            <p>{{deckComputer.length}}</p>
         </div>
-        <div class="card-decoration bottom-right rotate">
-            <div>{{played[played.length-1].rank}}</div>
-            <div ng-class="played[played.length-1].suit"></div>
+        <div class="card common-float-left" ng-click="snapByPlayer()">
+            <div class="card-decoration top-left">
+                <div>{{played[played.length-1].rank}}</div>
+                <div ng-class="played[played.length-1].suit"></div>
+            </div>
+            <div class="card-decoration bottom-right rotate">
+                <div>{{played[played.length-1].rank}}</div>
+                <div ng-class="played[played.length-1].suit"></div>
+            </div>
         </div>
-    </div>
-    <div class="card hiddenCard common-float-left" ng-class="{true: 'card-highlight'}[nextPlayer == 'player']"
-         ng-click="playCardPlayer()">
-        <p ng-class="{true: 'snap-winner'}[snapWinner == 'player']">Player</p>
-        <br/>
-        <p>{{deckPlayer.length}}</p>
-    </div>
-</section>
-<div class="clear"></div>
+        <div class="card hiddenCard common-float-left" ng-class="{true: 'card-highlight'}[nextPlayer == 'player']"
+             ng-click="playCardPlayer()">
+            <p ng-class="{true: 'snap-winner'}[snapWinner == 'player']">Player</p>
+            <br/>
 
-<section id="game-controls">
-    <button class="centre" ng-click="startGame();">Start Game</button>
-
-    <div class="centre">
-        <div class="common-float-left" ng-repeat="level in levels">
-            <input type="radio" ng-model="difficulty.value" value="{{level.value}}">{{level.name}}<br/>
+            <p>{{deckPlayer.length}}</p>
         </div>
-    </div>
-</section>
+    </section>
+    <div class="clear"></div>
 
-<p ng-show="gameHasWinner">And the winner is.... {{winner}}!</p>
+    <section id="game-controls">
+        <button class="centre" ng-click="startGame();">Start Game</button>
+
+        <div class="centre">
+            <div class="common-float-left" ng-repeat="level in levels">
+                <input type="radio" ng-model="difficulty.value" value="{{level.value}}">{{level.name}}<br/>
+            </div>
+        </div>
+    </section>
+
+    <p ng-show="gameHasWinner">And the winner is.... {{winner}}!</p>
+</div>
 </body>
 </html>
