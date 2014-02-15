@@ -7,6 +7,7 @@
 
     <link href='http://fonts.googleapis.com/css?family=Gabriela' rel='stylesheet' type='text/css'>
     <link href="//fonts.googleapis.com/css?family=Homenaje:400" rel="stylesheet" type="text/css">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
     <link rel="stylesheet" href="css/bootstrap.css"/>
     <link rel="stylesheet" href="css/snap.css"/>
@@ -31,11 +32,13 @@
 
     </section>
     <section id="game-table">
+        <div class="centre" ng-show="gameHasWinner"><i class="fa fa-trophy card-icons"></i><br/>And the winner is.... {{winner}}!</div>
         <div class="card hiddenCard common-float-left" ng-class="{true: 'card-highlight'}[nextPlayer == 'computer']">
             <p ng-class="{true: 'snap-winner'}[snapWinner == 'computer']">Computer</p>
+            <i class="fa fa-laptop card-icons"></i>
             <br/>
 
-            <p>{{deckComputer.length}}</p>
+            <p>{{deckComputer.length}} cards left</p>
         </div>
         <div class="card common-float-left" ng-click="snapByPlayer()">
             <div class="card-decoration top-left">
@@ -50,9 +53,10 @@
         <div class="card hiddenCard common-float-left" ng-class="{true: 'card-highlight'}[nextPlayer == 'player']"
              ng-click="playCardPlayer()">
             <p ng-class="{true: 'snap-winner'}[snapWinner == 'player']">Player</p>
+            <i class="fa fa-user card-icons"></i>
             <br/>
 
-            <p>{{deckPlayer.length}}</p>
+            <p>{{deckPlayer.length}} cards left</p>
         </div>
     </section>
     <div class="clear"></div>
@@ -64,8 +68,6 @@
             <input type="radio" ng-model="difficulty.value" value="{{level.value}}">{{level.name}}<br/>
         </div>
     </section>
-
-    <p ng-show="gameHasWinner">And the winner is.... {{winner}}!</p>
 
 </div>
 </body>

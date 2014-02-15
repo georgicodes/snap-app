@@ -76,6 +76,7 @@ body {
 
 .hiddenCard {
     background-color: #E82F2A;
+    color: #FEC85E;
 }
 
 .enabled {
@@ -150,4 +151,8 @@ body {
     100% {
         color: #333333;
     }
+}
+
+.card-icons {
+    font-size: 4em;
 }
