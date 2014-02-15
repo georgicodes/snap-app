@@ -5,6 +5,7 @@ snapGameApp.controller('SnapGameCtrl', function SnapGameCtrl($scope, $http, $tim
     var COMPUTER_NAME = "computer";
     var timerIdForComputerSnap;
     var timerIdForComputerMove;
+    $scope.gameStarted = false;
     $scope.appTitle = "Snappy App";
     $scope.levels = [
         { name: "Easy", value: 3000},
@@ -22,6 +23,7 @@ snapGameApp.controller('SnapGameCtrl', function SnapGameCtrl($scope, $http, $tim
         $scope.playCardIfComputerIsFirstPlayer();
         $scope.gameHasWinner = false;
         $scope.difficulty = $scope.initDifficulty(); // initial computer move timeout value
+        $scope.gameStarted = true;
     };
 
     // load data source
@@ -64,6 +66,7 @@ snapGameApp.controller('SnapGameCtrl', function SnapGameCtrl($scope, $http, $tim
             console.log("Player attempted to play out of turn");
             return;
         }
+        $scope.snapWinner = "";
         $scope.stopComputerSnapTimer();
         placeCardOnPile($scope.deckPlayer);
 
@@ -78,10 +81,11 @@ snapGameApp.controller('SnapGameCtrl', function SnapGameCtrl($scope, $http, $tim
             console.log("Computer attempted to play out of turn");
             return;
         }
+        $scope.snapWinner = "";
         placeCardOnPile($scope.deckComputer);
     };
 
-    placeCardOnPile = function(deck) {
+    placeCardOnPile = function (deck) {
         var card = deck.pop();
         console.log($scope.nextPlayer + " played card " + card.suit + " " + card.rank);
 
@@ -94,11 +98,11 @@ snapGameApp.controller('SnapGameCtrl', function SnapGameCtrl($scope, $http, $tim
         performSnap(true);
     };
 
-    performSnap = function(isPlayerWhoSnapped) {
+    performSnap = function (isPlayerWhoSnapped) {
         if (!isLegalSnap()) {
             console.log("Cards aren't a match");
         } else {
-            isPlayerWhoSnapped = isPlayerWhoSnapped == true ? true : false;
+//            isPlayerWhoSnapped = isPlayerWhoSnapped == true ? true : false;
             console.log("Snap attempt made by player? " + isPlayerWhoSnapped);
 
             // add card pile to beginning of array because we use pop()
@@ -109,11 +113,11 @@ snapGameApp.controller('SnapGameCtrl', function SnapGameCtrl($scope, $http, $tim
             }
             $scope.snapWinner = isPlayerWhoSnapped == true ? PLAYER_NAME : COMPUTER_NAME;
             $scope.played = []; // clear pile
+            console.log("Snap!");
+
             $scope.checkForGameWinner();
             if ($scope.nextPlayer == COMPUTER_NAME)
                 playCardComputer();
-
-            console.log("Snap!");
         }
     };
 
@@ -142,32 +146,38 @@ snapGameApp.controller('SnapGameCtrl', function SnapGameCtrl($scope, $http, $tim
             $scope.startComputerSnapTimer();
     };
 
-    $scope.startComputerSnapTimer = function() {
+    $scope.startComputerSnapTimer = function () {
         if (timerIdForComputerSnap != null)
             $scope.stopComputerSnapTimer();
         timerIdForComputerSnap = $timeout(performSnap, $scope.difficulty.value);
     };
 
-    $scope.stopComputerSnapTimer = function() {
+    $scope.stopComputerSnapTimer = function () {
         $timeout.cancel(timerIdForComputerSnap);
     };
 
-    $scope.stopComputerMoveTimer = function() {
+    $scope.stopComputerMoveTimer = function () {
         $timeout.cancel(timerIdForComputerMove);
     };
 
-    $scope.checkForGameWinner = function() {
+    $scope.checkForGameWinner = function () {
         $scope.gameHasWinner = $scope.deckComputer.length == 0 || $scope.deckPlayer.length == 0;
         if ($scope.gameHasWinner) {
-            $scope.winner = $scope.deckComputer.length == 0 ? PLAYER_NAME : COMPUTER_NAME;
-            console.log("Winner is: " + $scope.winner);
+            // is it a tie?
+            if ($scope.deckComputer.length == 0 && $scope.deckPlayer.length == 0) {
+                $scope.winner = "tie!"
+                console.log("It's a tie!");
+            } else {
+                $scope.winner = $scope.deckComputer.length == 0 ? PLAYER_NAME : COMPUTER_NAME;
+                console.log("Winner is: " + $scope.winner);
+            }
             $scope.stopComputerMoveTimer();
             $scope.stopComputerSnapTimer();
         }
         return $scope.gameHasWinner;
     };
 
-    $scope.initDifficulty = function() {
+    $scope.initDifficulty = function () {
         return {value: $scope.levels[1].value};
     };
 

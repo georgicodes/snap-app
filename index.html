@@ -43,7 +43,7 @@
             {{winner}}!
         </div>
         <div class="card hiddenCard common-float-left" ng-class="{true: 'card-highlight'}[nextPlayer == 'computer']">
-            <div ng-class="{true: 'snap-winner'}[snapWinner == 'computer']">
+            <div class="card-text-comp" ng-class="{true: 'snap-winner'}[snapWinner == 'computer']">
                 <p>Computer</p>
                 <i class="fa fa-laptop card-icons"></i>
                 <br/>
@@ -63,7 +63,7 @@
         </div>
         <div class="card hiddenCard common-float-left" ng-class="{true: 'card-highlight'}[nextPlayer == 'player']"
              ng-click="playCardPlayer()">
-            <div ng-class="{true: 'snap-winner'}[snapWinner == 'player']">
+            <div class="card-text-player" ng-class="{true: 'snap-winner'}[snapWinner == 'player']">
                 <p>Player</p>
                 <i class="fa fa-user card-icons"></i>
                 <br/>
@@ -77,7 +77,7 @@
     <section id="game-controls">
         <button ng-click="startGame();">Start Game</button>
 
-        <div ng-repeat="level in levels">
+        <div ng-show="gameStarted" ng-repeat="level in levels">
             <input type="radio" ng-model="difficulty.value" value="{{level.value}}">{{level.name}}<br/>
         </div>
     </section>

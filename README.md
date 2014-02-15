@@ -1,6 +1,16 @@
 Snap App
 =================
 
+## Heroku
+This game has been deployed to heroku, please visit: http://agile-reaches-2810.herokuapp.com/ to play
+
+The file containing the game logic is in scripts/controllers.js
+
+## Run with Node
+You can run this app with node by performing the following
+npm install
+node server
+
 ## Game Engine Assumptions
 - Data source has correct input of 52 card deck
 - If the next card is played before a snap is made, that snap is lost to both players
@@ -15,8 +25,3 @@ Even a small game like Snap could take a long time to implement to make it fanta
 - improve UI design (prettify with css3 animations and the like)
 - add in a slider control
 - move call to json into angular service
-
-## Run with Node
-You can run this app with node by performing the following
-npm install
-node server

@@ -143,13 +143,13 @@ body {
 
 @-webkit-keyframes flashAnim {
     0% {
-        color: #333333;
+        color: #FEC85E;
     }
     50% {
         color: #178bff;
     }
     100% {
-        color: #333333;
+        color: #FEC85E;
     }
 }
 
