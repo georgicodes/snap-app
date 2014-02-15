@@ -7,5 +7,8 @@ app.get("/", function(req, res){
 });
 
 app.use(express.static(__dirname + '/'));
-app.listen(port);
-console.log("Listening on port " + port);
+
+var port = Number(process.env.PORT || 5000);
+app.listen(port, function() {
+    console.log("Listening on " + port);
+});
