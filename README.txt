@@ -1,7 +1,7 @@
-===== Solution =====
-Hi There. I hope you enjoy playing my version of snap!
+Snap App
+=================
 
-===== Game Assumptions =====
+===== Game Engine Assumptions =====
 - Data source has correct input of 52 card deck
 - If the next card is played before a snap is made, that snap is lost to both players
 - There will always be a winner
