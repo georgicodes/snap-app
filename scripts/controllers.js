@@ -25,7 +25,7 @@ snapGameApp.controller('SnapGameCtrl', function SnapGameCtrl($scope, $http, $tim
     };
 
     // load data source
-    $http.get('cards.json').success(function (data) {
+    $http.get('scripts/cards.json').success(function (data) {
         $scope.unshuffledDeck = data;
     });
 
