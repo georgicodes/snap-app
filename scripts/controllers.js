@@ -102,7 +102,7 @@ snapGameApp.controller('SnapGameCtrl', function SnapGameCtrl($scope, $http, $tim
         if (!isLegalSnap()) {
             console.log("Cards aren't a match");
         } else {
-//            isPlayerWhoSnapped = isPlayerWhoSnapped == true ? true : false;
+            isPlayerWhoSnapped = isPlayerWhoSnapped == true ? true : false;
             console.log("Snap attempt made by player? " + isPlayerWhoSnapped);
 
             // add card pile to beginning of array because we use pop()
