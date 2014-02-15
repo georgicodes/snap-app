@@ -7,7 +7,7 @@ Snap App
 - There will always be a winner
 
 ===== Next Steps & Improvements =====
-A task like this could take a long time to implement to make it fantastic, here are a few feature which would make it killer!
+Even a small game like Snap could take a long time to implement to make it fantastic, here are a few feature which would make it killer!
 
 - responsive CSS using media queries so it looks fab across all devices
 - multi-player using NodeJS and possibly a touch of SocketIO
